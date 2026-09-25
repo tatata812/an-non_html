@@ -125,9 +125,12 @@ dt {
 }
 
 
+
+
 /* =================================
-header
- ================================= */
+  ヘッダー
+================================= */
+
 .header {
   position: fixed;
   top: 0;
@@ -136,10 +139,21 @@ header
   width: 100%;
   background: #fff;
 
+  /* -------------------------------
+    SP
+    初期：CTAの上
+    スクロール後：上部固定
+  -------------------------------- */
+
   @include sp {
-    top: auto;
-    bottom: calc(66px + env(safe-area-inset-bottom));
+    top: calc(100dvh - 132px - env(safe-area-inset-bottom));
+    bottom: auto;
   }
+
+
+  /* -------------------------------
+    inner
+  -------------------------------- */
 
   &__inner {
     position: relative;
@@ -147,6 +161,7 @@ header
     align-items: center;
     height: 80px;
     padding: 0 16px;
+    background: #fff;
 
     @include tab {
       height: 60px;
@@ -159,7 +174,14 @@ header
     }
   }
 
+
+  /* -------------------------------
+    logo
+  -------------------------------- */
+
   &__logo {
+    position: relative;
+    z-index: 2;
     flex-shrink: 0;
     width: 180px;
 
@@ -182,6 +204,11 @@ header
     }
   }
 
+
+  /* -------------------------------
+    navigation
+  -------------------------------- */
+
   &__nav {
     position: absolute;
     top: 50%;
@@ -191,16 +218,21 @@ header
     @include tab {
       position: fixed;
       top: 60px;
+      right: 0;
+      bottom: 0;
       left: 0;
       z-index: 999;
       width: 100%;
-      height: calc(100dvh - 60px);
+      height: auto;
       padding: 30px 20px;
+      overflow-y: auto;
       background: #fff;
       opacity: 0;
       visibility: hidden;
       transform: none;
-      transition: opacity .3s, visibility .3s;
+      transition:
+        opacity .3s,
+        visibility .3s;
 
       &.is-open {
         opacity: 1;
@@ -209,12 +241,48 @@ header
     }
 
     @include sp {
+      /*
+        初期状態
+        ヘッダーがCTAの上にあるため、
+        メニューはヘッダーより上だけに表示
+      */
       top: 0;
+      right: 0;
       bottom: calc(132px + env(safe-area-inset-bottom));
+      left: 0;
+      z-index: 999;
+      width: 100%;
       height: auto;
       padding: 30px 20px;
+      overflow-y: auto;
+      background: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transform: none;
+      transition:
+        opacity .3s,
+        visibility .3s;
+
+      &.is-open {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /*
+        ヘッダーが上固定された後
+        メニューはヘッダーの下から表示
+      */
+      &.is-header-top {
+        top: 66px;
+        bottom: calc(66px + env(safe-area-inset-bottom));
+      }
     }
   }
+
+
+  /* -------------------------------
+    navigation list
+  -------------------------------- */
 
   &__list {
     display: flex;
@@ -230,6 +298,11 @@ header
       display: block;
     }
   }
+
+
+  /* -------------------------------
+    navigation item
+  -------------------------------- */
 
   &__item {
     @include tab {
@@ -260,11 +333,17 @@ header
     }
   }
 
+
+  /* -------------------------------
+    menu button
+  -------------------------------- */
+
   &__menu {
     display: none;
 
     @include tab {
       position: relative;
+      z-index: 2;
       display: block;
       width: 32px;
       height: 24px;
@@ -282,7 +361,11 @@ header
       width: 100%;
       height: 2px;
       background: #333;
-      transition: top .3s, bottom .3s, transform .3s, opacity .3s;
+      transition:
+        top .3s,
+        bottom .3s,
+        transform .3s,
+        opacity .3s;
 
       &:nth-child(1) {
         top: 0;
@@ -315,6 +398,11 @@ header
       }
     }
 
+
+    /* -------------------------------
+      SP menu button
+    -------------------------------- */
+
     @include sp {
       display: flex;
       flex-direction: column;
@@ -324,7 +412,7 @@ header
       width: 48px;
       height: 50px;
       margin-left: auto;
-      padding: 18px 0 0 0;
+      padding: 18px 0 0;
 
       span {
         position: static;
@@ -356,7 +444,7 @@ header
         order: 2;
         content: "menu";
         color: #555;
-        font-family: "Jost", sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 14px;
         font-weight: 500;
         line-height: 1;
@@ -394,6 +482,11 @@ header
   }
 }
 
+
+/* =================================
+  メイン
+================================= */
+
 main {
   padding-top: 80px;
 
@@ -403,6 +496,17 @@ main {
 
   @include sp {
     padding-top: 0;
+  }
+}
+
+
+/* =================================
+  メニュー展開時
+================================= */
+
+body.is-menu-open {
+  @include tab {
+    overflow: hidden;
   }
 }
 
