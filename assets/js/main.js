@@ -1,178 +1,177 @@
 $(function () {
 
- /* =================================
+  /* =================================
   ヘッダー
 ================================= */
 
-var $header = $('.header');
-var $menu = $('.header__menu');
-var $nav = $('.header__nav');
+  var $header = $('.header');
+  var $menu = $('.header__menu');
+  var $nav = $('.header__nav');
 
 
-/* -------------------------------
-  メニュー開閉
--------------------------------- */
+  /* -------------------------------
+    メニュー開閉
+  -------------------------------- */
 
-$menu.on('click', function () {
-  var isOpen = $(this).toggleClass('is-open').hasClass('is-open');
+  $menu.on('click', function () {
+    var isOpen = $(this).toggleClass('is-open').hasClass('is-open');
 
-  if (isOpen) {
+    if (isOpen) {
 
-    /* -------------------------------
-      ヘッダーの位置によって
-      メニュー表示位置を変更
-    -------------------------------- */
+      /* -------------------------------
+        ヘッダーの位置によって
+        メニュー表示位置を変更
+      -------------------------------- */
 
-    if ($header.hasClass('is-fixed')) {
-      $nav.addClass('is-header-top');
+      if ($header.hasClass('is-fixed')) {
+        $nav.addClass('is-header-top');
+      } else {
+        $nav.removeClass('is-header-top');
+      }
+
+      $nav.addClass('is-open');
+      $('body').addClass('is-menu-open');
+
     } else {
-      $nav.removeClass('is-header-top');
+
+      $nav.removeClass('is-open is-header-top');
+      $('body').removeClass('is-menu-open');
+
     }
 
-    $nav.addClass('is-open');
-    $('body').addClass('is-menu-open');
+    $(this).attr({
+      'aria-expanded': isOpen,
+      'aria-label': isOpen ? 'メニューを閉じる' : 'メニューを開く'
+    });
+  });
 
-  } else {
+
+  /* -------------------------------
+    ナビクリック時にメニューを閉じる
+  -------------------------------- */
+
+  $nav.find('a').on('click', function () {
+
+    $menu
+      .removeClass('is-open')
+      .attr({
+        'aria-expanded': 'false',
+        'aria-label': 'メニューを開く'
+      });
 
     $nav.removeClass('is-open is-header-top');
+
     $('body').removeClass('is-menu-open');
 
-  }
-
-  $(this).attr({
-    'aria-expanded': isOpen,
-    'aria-label': isOpen ? 'メニューを閉じる' : 'メニューを開く'
   });
-});
-
-
-/* -------------------------------
-  ナビクリック時にメニューを閉じる
--------------------------------- */
-
-$nav.find('a').on('click', function () {
-
-  $menu
-    .removeClass('is-open')
-    .attr({
-      'aria-expanded': 'false',
-      'aria-label': 'メニューを開く'
-    });
-
-  $nav.removeClass('is-open is-header-top');
-
-  $('body').removeClass('is-menu-open');
-
-});
-
-
-/* -------------------------------
-  SP ヘッダー追従
--------------------------------- */
-
-function updateSpHeader() {
-
-  if (!$header.length) {
-    return;
-  }
 
 
   /* -------------------------------
-    SP以外
+    SP ヘッダー追従
   -------------------------------- */
 
-  if ($(window).width() > 767) {
+  function updateSpHeader() {
 
-    $header
-      .removeClass('is-fixed')
-      .css('top', '');
-
-    $nav.removeClass('is-header-top');
-
-    return;
-  }
+    if (!$header.length) {
+      return;
+    }
 
 
-  /* -------------------------------
-    各サイズ
-  -------------------------------- */
+    /* -------------------------------
+      SP以外
+    -------------------------------- */
 
-  var headerHeight = 66;
-  var ctaHeight = 66;
+    if ($(window).width() > 767) {
 
-  var startTop =
-    window.innerHeight -
-    headerHeight -
-    ctaHeight;
+      $header
+        .removeClass('is-fixed')
+        .css('top', '');
 
-  var scrollTop = $(window).scrollTop();
-
-
-  /* -------------------------------
-    上端に到達するまで
-  -------------------------------- */
-
-  if (scrollTop < startTop) {
-
-    var currentTop =
-      startTop -
-      scrollTop;
-
-    $header
-      .removeClass('is-fixed')
-      .css('top', currentTop + 'px');
-
-
-    /*
-      メニューを開いたままの場合も
-      下側ヘッダー用の配置に戻す
-    */
-
-    if ($nav.hasClass('is-open')) {
       $nav.removeClass('is-header-top');
+
+      return;
     }
 
+
+    /* -------------------------------
+      各サイズ
+    -------------------------------- */
+
+    var headerHeight = 66;
+    var ctaHeight = 66;
+
+    var startTop =
+      window.innerHeight -
+      headerHeight -
+      ctaHeight;
+
+    var scrollTop = $(window).scrollTop();
+
+
+    /* -------------------------------
+      上端に到達するまで
+    -------------------------------- */
+
+    if (scrollTop < startTop) {
+
+      var currentTop =
+        startTop -
+        scrollTop;
+
+      $header
+        .removeClass('is-fixed')
+        .css('top', currentTop + 'px');
+
+
+      /*
+        メニューを開いたままの場合も
+        下側ヘッダー用の配置に戻す
+      */
+
+      if ($nav.hasClass('is-open')) {
+        $nav.removeClass('is-header-top');
+      }
+
+    }
+
+
+    /* -------------------------------
+      上端到達後
+    -------------------------------- */
+    else {
+
+      $header
+        .addClass('is-fixed')
+        .css('top', '0');
+
+
+      /*
+        メニューを開いたまま
+        ヘッダーが上まで来た場合
+      */
+
+      if ($nav.hasClass('is-open')) {
+        $nav.addClass('is-header-top');
+      }
+
+    }
   }
 
 
   /* -------------------------------
-    上端到達後
+    初期実行
   -------------------------------- */
 
-  else {
-
-    $header
-      .addClass('is-fixed')
-      .css('top', '0');
-
-
-    /*
-      メニューを開いたまま
-      ヘッダーが上まで来た場合
-    */
-
-    if ($nav.hasClass('is-open')) {
-      $nav.addClass('is-header-top');
-    }
-
-  }
-}
-
-
-/* -------------------------------
-  初期実行
--------------------------------- */
-
-updateSpHeader();
-
-
-/* -------------------------------
-  スクロール・リサイズ
--------------------------------- */
-
-$(window).on('scroll resize', function () {
   updateSpHeader();
-});
+
+
+  /* -------------------------------
+    スクロール・リサイズ
+  -------------------------------- */
+
+  $(window).on('scroll resize', function () {
+    updateSpHeader();
+  });
 
   /* =================================
     ページ内リンク　ヘッダーの高さ考慮
@@ -222,22 +221,29 @@ $(window).on('scroll resize', function () {
   });
 
 
-  /* =================================
-    アニメーション　フェードイン
-  ================================= */
-
-  $(window).on('scroll', function () {
-    var windowHeight = $(window).height();
-    var scroll = $(window).scrollTop();
-
-    $('.fade-in-js').each(function () {
-      var targetPosition = $(this).offset().top;
-
-      if (scroll > targetPosition - windowHeight + 100) {
-        $(this).addClass('action');
+/* =================================
+  ご家族の声
+================================= */
+$('.top-voice__slider').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  infinite: true,
+  dots: false,
+  arrows: true,
+  prevArrow: '<button type="button" class="slick-prev"><img src="assets/img/common/slider-arrow-prev.png" alt="前へ"></button>',
+  nextArrow: '<button type="button" class="slick-next"><img src="assets/img/common/slider-arrow-next.png" alt="次へ"></button>',
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '55px'
       }
-    });
-  });
+    }
+  ]
+});
 
 });
 
@@ -303,8 +309,237 @@ mvTl.from('.top-mv__person', {
 
 
 /* =================================
-  下層セクション
+  まずはご相談ください
 ================================= */
 
-// この下にScrollTriggerを使った
-// 各セクションのアニメーションを追加
+gsap.from('.top-consult__heading', {
+  scrollTrigger: {
+    trigger: '.top-consult',
+    start: 'top 80%',
+    once: true
+  },
+  y: 25,
+  opacity: 0,
+  duration: .8,
+  ease: 'power2.out'
+});
+
+gsap.from('.top-consult__card > *', {
+  scrollTrigger: {
+    trigger: '.top-consult__list',
+    start: 'top 80%',
+    once: true
+  },
+  y: 20,
+  opacity: 0,
+  duration: .7,
+  stagger: .08,
+  ease: 'power2.out'
+});
+
+/* =================================
+  ご相談・資料請求
+================================= */
+
+gsap.utils.toArray('.top-cta__block').forEach(function (block) {
+  gsap.from(block, {
+    scrollTrigger: {
+      trigger: block,
+      start: 'top 85%',
+      once: true
+    },
+    y: 25,
+    opacity: 0,
+    duration: .8,
+    ease: 'power2.out'
+  });
+});
+
+/* =================================
+  プランのご案内
+================================= */
+
+gsap.from('.top-plan__heading', {
+  scrollTrigger: {
+    trigger: '.top-plan',
+    start: 'top 80%',
+    once: true
+  },
+  y: 25,
+  opacity: 0,
+  duration: .8,
+  ease: 'power2.out'
+});
+
+gsap.from('.top-plan__ribbon', {
+  scrollTrigger: {
+    trigger: '.top-plan__ribbon',
+    start: 'top 85%',
+    once: true
+  },
+  y: 20,
+  opacity: 0,
+  duration: .7,
+  ease: 'power2.out'
+});
+
+gsap.from('.top-plan__card', {
+  scrollTrigger: {
+    trigger: '.top-plan__list',
+    start: 'top 82%',
+    once: true
+  },
+  y: 30,
+  opacity: 0,
+  duration: .7,
+  stagger: .15,
+  ease: 'power2.out'
+});
+
+gsap.from('.top-plan__more', {
+  scrollTrigger: {
+    trigger: '.top-plan__more',
+    start: 'top 90%',
+    once: true
+  },
+  y: 15,
+  opacity: 0,
+  duration: .6,
+  ease: 'power2.out'
+});
+
+/* =================================
+  ご葬儀の流れ
+================================= */
+
+gsap.from('.top-flow__heading', {
+  scrollTrigger: {
+    trigger: '.top-flow',
+    start: 'top 80%',
+    once: true
+  },
+  y: 25,
+  opacity: 0,
+  duration: .8,
+  ease: 'power2.out'
+});
+
+gsap.from('.top-flow__item', {
+  scrollTrigger: {
+    trigger: '.top-flow__list',
+    start: 'top 80%',
+    once: true
+  },
+  y: 25,
+  opacity: 0,
+  duration: .7,
+  stagger: .15,
+  ease: 'power2.out'
+});
+
+gsap.from('.top-flow__more', {
+  scrollTrigger: {
+    trigger: '.top-flow__more',
+    start: 'top 90%',
+    once: true
+  },
+  y: 15,
+  opacity: 0,
+  duration: .6,
+  ease: 'power2.out'
+});
+
+/* =================================
+  斎場案内
+================================= */
+gsap.from('.top-hall__heading', {
+  scrollTrigger: {
+    trigger: '.top-hall',
+    start: 'top 80%',
+    once: true
+  },
+  y: 25,
+  opacity: 0,
+  duration: .8,
+  ease: 'power2.out'
+});
+
+gsap.from('.top-hall__map', {
+  scrollTrigger: {
+    trigger: '.top-hall__map',
+    start: 'top 85%',
+    once: true
+  },
+  y: 25,
+  opacity: 0,
+  duration: .8,
+  ease: 'power2.out'
+});
+
+gsap.from('.top-hall__card', {
+  scrollTrigger: {
+    trigger: '.top-hall__list',
+    start: 'top 85%',
+    once: true
+  },
+  y: 30,
+  opacity: 0,
+  duration: .7,
+  stagger: .15,
+  ease: 'power2.out',
+  onComplete: function () {
+    gsap.set('.top-hall__card', {
+      clearProps: 'transform'
+    });
+  }
+});
+
+gsap.from('.top-hall__more', {
+  scrollTrigger: {
+    trigger: '.top-hall__more',
+    start: 'top 90%',
+    once: true
+  },
+  y: 15,
+  opacity: 0,
+  duration: .6,
+  ease: 'power2.out',
+  onComplete: function () {
+    gsap.set('.top-hall__more', {
+      clearProps: 'transform'
+    });
+  }
+});
+
+/* =================================
+  お問い合わせ
+================================= */
+gsap.from('.top-contact__heading', {
+  scrollTrigger: {
+    trigger: '.top-contact',
+    start: 'top 80%',
+    once: true
+  },
+  y: 25,
+  opacity: 0,
+  duration: .8,
+  ease: 'power2.out'
+});
+
+gsap.from('.top-contact__item', {
+  scrollTrigger: {
+    trigger: '.top-contact__list',
+    start: 'top 85%',
+    once: true
+  },
+  y: 30,
+  opacity: 0,
+  duration: .7,
+  stagger: .15,
+  ease: 'power2.out',
+  onComplete: function () {
+    gsap.set('.top-contact__item', {
+      clearProps: 'transform'
+    });
+  }
+});

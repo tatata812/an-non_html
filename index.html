@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Roboto+Condensed:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
@@ -145,39 +145,738 @@
       </div>
     </section>
 
-     <section style="height: 600px;"></section>
+    <!-- =================================
+  まずはご相談ください
+================================= -->
+    <section class="top-consult">
+      <div class="top-consult__inner">
+        <div class="top-consult__heading">
+          <h2 class="top-consult__title font-title">まずはご相談ください</h2>
+          <p class="top-consult__lead font-title">何をすればよいのか分からない、そんなご家族さまを<br class="pc-only">ゼロからサポートいたします。</p>
+        </div>
+
+        <div class="top-consult__list">
+          <!-- 01 -->
+          <a href="#" class="top-consult__card">
+            <div class="top-consult__image">
+              <img src="assets/img/top/consult01.jpg" alt="">
+            </div>
+            <div class="top-consult__body">
+              <h3 class="top-consult__card-title font-title">地域に根ざした葬祭式場です</h3>
+              <div class="top-consult__area font-title">
+                <span>宇部</span>
+                <span>山陽小野田</span>
+                <span>阿知須</span>
+                <span>佐山</span>
+              </div>
+              <span class="top-consult__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+
+          <!-- 02 -->
+          <a href="#" class="top-consult__card">
+            <div class="top-consult__image">
+              <img src="assets/img/top/consult02.jpg" alt="">
+            </div>
+            <div class="top-consult__body">
+              <h3 class="top-consult__card-title font-title">わかりやすい料金設定</h3>
+              <p class="top-consult__text font-title">ご要望に合わせて<br>スタッフが丁寧にご説明</p>
+              <span class="top-consult__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+
+          <!-- 03 -->
+          <a href="#" class="top-consult__card">
+            <div class="top-consult__image">
+              <img src="assets/img/top/consult03.jpg" alt="">
+            </div>
+            <div class="top-consult__body">
+              <h3 class="top-consult__card-title font-title">経験豊富なスタッフ</h3>
+              <p class="top-consult__text font-title">ご契約からご葬儀完了まで<br class="sp-block">経験豊富なスタッフが心を込めて対応</p>
+              <span class="top-consult__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+
+          <!-- 04 -->
+          <a href="#" class="top-consult__card">
+            <div class="top-consult__image">
+              <img src="assets/img/top/consult04.jpg" alt="">
+            </div>
+            <div class="top-consult__body">
+              <h3 class="top-consult__card-title font-title">葬儀後サポート</h3>
+              <p class="top-consult__text font-title">ご葬儀後のサポートも<br>全てお任せいただけます</p>
+              <span class="top-consult__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================
+  ご相談・資料請求
+================================= -->
+    <section class="top-cta">
+      <div class="top-cta__inner">
+        <!-- 電話 -->
+        <div class="top-cta__block top-cta__block--tel">
+          <p class="top-cta__lead font-title">お困りの方は今すぐこちらにお電話ください<br>通話無料 <span class="font-num">24</span>時間<span
+              class="font-num">365</span>日 即時対応<br>生前のご相談もこちらから</p>
+          <a href="tel:0120594166" class="top-cta__button top-cta__button--tel">
+            <span class="top-cta__icon">
+              <img src="assets/img/common/icon-tel.png" alt="">
+            </span>
+            <span class="top-cta__button-content">
+              <strong class="top-cta__tel-number font-num">0120-59-4166</strong>
+              <span class="top-cta__button-text font-title"><strong>通話無料</strong> <span
+                  class="font-num">24</span>時間<span class="font-num">365</span>日受付</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- 資料請求 -->
+        <div class="top-cta__block top-cta__block--document">
+          <p class="top-cta__document-lead font-title">カンタン入力<br>無料資料をお送りします（電子書類 or 紙書類）</p>
+          <p class="top-cta__note font-title">紙書類の場合はプライバシーを考慮した発送も選べます</p>
+          <a href="/contact/" class="top-cta__button top-cta__button--document">
+            <span class="top-cta__icon">
+              <img src="assets/img/common/icon-document.png" alt="">
+            </span>
+            <span class="top-cta__button-content">
+              <strong class="top-cta__document-title font-title">資料請求はこちら</strong>
+              <span class="top-cta__button-text font-title">メールフォーム <span class="font-num">24</span>時間<span
+                  class="font-num">365</span>日受付</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================
+  プランのご案内
+================================= -->
+    <section class="top-plan">
+      <div class="top-plan__inner">
+        <div class="top-plan__heading">
+          <h2 class="top-plan__title font-title">プランのご案内</h2>
+          <div class="top-plan__price-copy font-title">
+            <span class="top-plan__family">家族葬が</span>
+            <strong class="font-num">15</strong>
+            <span class="top-plan__man">万円</span>
+            <span class="top-plan__tax">税込</span>
+            <span class="top-plan__from">〜</span>
+          </div>
+          <p class="top-plan__lead font-title">ご家族さまだけでのお別れの場合、負担になるほどの費用はかかりません。</p>
+        </div>
+
+        <div class="top-plan__ribbon">
+          <img src="assets/img/top/plan-family-title.png" alt="ご家族のみの場合">
+        </div>
+
+        <div class="top-plan__list">
+          <!-- 01 -->
+          <a href="#" class="top-plan__card">
+            <div class="top-plan__image">
+              <img src="assets/img/top/plan01.jpg" alt="">
+            </div>
+            <div class="top-plan__body">
+              <div class="top-plan__tags font-title">
+                <span>通夜</span>
+                <span>告別式</span>
+                <span class="is-active">出棺</span>
+              </div>
+              <h3 class="top-plan__card-title font-title">○○○○○プラン</h3>
+              <div class="top-plan__card-price">
+                <strong>150,000</strong>
+                <span class="top-plan__yen-wrap">
+                  <span class="top-plan__card-tax font-title">（税別）</span>
+                  <span class="top-plan__card-yen font-title">円</span>
+                </span>
+              </div>
+              <p class="top-plan__text font-title">ご自宅での準備が不要</p>
+              <span class="top-plan__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+
+          <!-- 02 -->
+          <a href="#" class="top-plan__card">
+            <div class="top-plan__image">
+              <img src="assets/img/top/plan02.jpg" alt="">
+            </div>
+            <div class="top-plan__body">
+              <div class="top-plan__tags font-title">
+                <span>通夜</span>
+                <span class="is-active">告別式</span>
+                <span class="is-active">出棺</span>
+              </div>
+              <h3 class="top-plan__card-title font-title">○○○○○プラン</h3>
+              <div class="top-plan__card-price">
+                <strong>250,000</strong>
+                <span class="top-plan__yen-wrap">
+                  <span class="top-plan__card-tax font-title">（税別）</span>
+                  <span class="top-plan__card-yen font-title">円</span>
+                </span>
+              </div>
+              <p class="top-plan__text font-title">疲労が少ない告別式から</p>
+              <span class="top-plan__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+
+          <!-- 03 -->
+          <a href="#" class="top-plan__card">
+            <div class="top-plan__image">
+              <img src="assets/img/top/plan03.jpg" alt="">
+            </div>
+            <div class="top-plan__body">
+              <div class="top-plan__tags font-title">
+                <span class="is-active">通夜</span>
+                <span class="is-active">告別式</span>
+                <span class="is-active">出棺</span>
+              </div>
+              <h3 class="top-plan__card-title font-title">○○○○○プラン</h3>
+              <div class="top-plan__card-price">
+                <strong>350,000</strong>
+                <span class="top-plan__yen-wrap">
+                  <span class="top-plan__card-tax font-title">（税別）</span>
+                  <span class="top-plan__card-yen font-title">円</span>
+                </span>
+              </div>
+              <p class="top-plan__text font-title">ひととおりを少人数で</p>
+              <span class="top-plan__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <a href="/plan/" class="top-plan__more font-title">
+          <span>プランをもっと見る</span>
+          <img src="assets/img/common/icon-arrow-white.png" alt="">
+        </a>
+      </div>
+    </section>
+
+    <!-- =================================
+  ご相談・資料請求
+================================= -->
+    <section class="top-cta top-cta--simple">
+      <div class="top-cta__inner">
+        <div class="top-cta__block top-cta__block--tel">
+          <a href="tel:0120594166" class="top-cta__button top-cta__button--tel">
+            <span class="top-cta__icon">
+              <img src="assets/img/common/icon-tel.png" alt="">
+            </span>
+            <span class="top-cta__button-content">
+              <strong class="top-cta__tel-number font-num">0120-59-4166</strong>
+              <span class="top-cta__button-text font-title"><strong>通話無料</strong> <span
+                  class="font-num">24</span>時間<span class="font-num">365</span>日受付</span>
+            </span>
+          </a>
+        </div>
+        <div class="top-cta__block top-cta__block--document">
+          <a href="/contact/" class="top-cta__button top-cta__button--document">
+            <span class="top-cta__icon">
+              <img src="assets/img/common/icon-document.png" alt="">
+            </span>
+            <span class="top-cta__button-content">
+              <strong class="top-cta__document-title font-title">資料請求はこちら</strong>
+              <span class="top-cta__button-text font-title">メールフォーム <span class="font-num">24</span>時間<span
+                  class="font-num">365</span>日受付</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================
+  ご葬儀の流れ
+================================= -->
+    <section class="top-flow">
+      <div class="top-flow__inner">
+        <div class="top-flow__heading">
+          <h2 class="top-flow__title font-title">ご葬儀の流れ</h2>
+          <p class="top-flow__lead font-title">様々な宗派や形態がございますが<br>一般的なご葬儀一連の流れをご案内いたします</p>
+        </div>
+
+        <div class="top-flow__list">
+          <!-- 01 -->
+          <div class="top-flow__item">
+            <div class="top-flow__step">
+              <img src="assets/img/top/flow-step01.png" alt="ご臨終〜ご納棺">
+            </div>
+            <ul class="top-flow__detail font-title">
+              <li>ご臨終</li>
+              <li>お迎え</li>
+              <li>お打合せ</li>
+              <li>枕経</li>
+              <li>ご納棺の儀</li>
+              <li>通夜、葬儀準備</li>
+            </ul>
+          </div>
+
+          <!-- 02 -->
+          <div class="top-flow__item">
+            <div class="top-flow__step">
+              <img src="assets/img/top/flow-step02.png" alt="お通夜">
+            </div>
+            <ul class="top-flow__detail font-title">
+              <li>式場ご搬送</li>
+              <li>ご弔問者さま対応</li>
+              <li>ご帰宅もしくは付添い安置</li>
+            </ul>
+          </div>
+
+          <!-- 03 -->
+          <div class="top-flow__item">
+            <div class="top-flow__step">
+              <img src="assets/img/top/flow-step03.png" alt="ご葬儀〜火葬">
+            </div>
+            <ul class="top-flow__detail font-title">
+              <li>お打合せ</li>
+              <li>おとき</li>
+              <li>葬送儀礼</li>
+              <li>お別れ・出棺</li>
+              <li>火葬</li>
+              <li>収骨</li>
+              <li>初七日</li>
+              <li>精進あげ、解散</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="/flow/" class="top-flow__more font-title">
+          <span>葬儀の流れを詳しく見る</span>
+          <img src="assets/img/common/icon-arrow-white.png" alt="">
+        </a>
+      </div>
+
+      <div class="top-flow__flower">
+        <picture>
+          <source media="(max-width: 600px)" srcset="assets/img/top/flow-flower-sp.png">
+          <img src="assets/img/top/flow-flower.png" alt="">
+        </picture>
+      </div>
+    </section>
+
+    <!-- =================================
+  ご相談・資料請求
+================================= -->
+    <section class="top-cta top-cta--dark">
+      <div class="top-cta__inner">
+        <div class="top-cta__block top-cta__block--tel">
+          <a href="tel:0120594166" class="top-cta__button top-cta__button--tel">
+            <span class="top-cta__icon">
+              <img src="assets/img/common/icon-tel.png" alt="">
+            </span>
+            <span class="top-cta__button-content">
+              <strong class="top-cta__tel-number font-num">0120-59-4166</strong>
+              <span class="top-cta__button-text font-title"><strong>通話無料</strong> <span
+                  class="font-num">24</span>時間<span class="font-num">365</span>日受付</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="top-cta__block top-cta__block--document">
+          <a href="/contact/" class="top-cta__button top-cta__button--document">
+            <span class="top-cta__icon">
+              <img src="assets/img/common/icon-document.png" alt="">
+            </span>
+            <span class="top-cta__button-content">
+              <strong class="top-cta__document-title font-title">資料請求はこちら</strong>
+              <span class="top-cta__button-text font-title">メールフォーム <span class="font-num">24</span>時間<span
+                  class="font-num">365</span>日受付</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================
+  ご家族の声
+================================= -->
+    <section class="top-voice">
+      <div class="top-voice__inner">
+        <div class="top-voice__heading">
+          <h2 class="top-voice__title font-title">ご家族の声</h2>
+          <p class="top-voice__lead font-title">安穏会館をご利用いただいたご家族さまの声をご紹介</p>
+        </div>
+
+        <div class="top-voice__slider">
+          <!-- 01 -->
+          <div class="top-voice__slide">
+            <a href="#" class="top-voice__card">
+              <div class="top-voice__image">
+                <img src="assets/img/top/voice01.jpg" alt="">
+              </div>
+              <div class="top-voice__body">
+                <span class="top-voice__category font-title">一般葬</span>
+                <h3 class="top-voice__card-title font-title">ご家族の声タイトル１</h3>
+                <p class="top-voice__meta font-title">横浜市在住　A様</p>
+                <span class="top-voice__card-arrow">
+                  <img src="assets/img/common/icon-arrow.png" alt="">
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 02 -->
+          <div class="top-voice__slide">
+            <a href="#" class="top-voice__card">
+              <div class="top-voice__image">
+                <img src="assets/img/top/voice02.jpg" alt="">
+              </div>
+              <div class="top-voice__body">
+                <span class="top-voice__category font-title">一般葬</span>
+                <h3 class="top-voice__card-title font-title">ご家族の声タイトル２</h3>
+                <p class="top-voice__meta font-title">宇部市在住　B様</p>
+                <span class="top-voice__card-arrow">
+                  <img src="assets/img/common/icon-arrow.png" alt="">
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 03 -->
+          <div class="top-voice__slide">
+            <a href="#" class="top-voice__card">
+              <div class="top-voice__image">
+                <img src="assets/img/top/voice03.jpg" alt="">
+              </div>
+              <div class="top-voice__body">
+                <span class="top-voice__category font-title">家族葬</span>
+                <h3 class="top-voice__card-title font-title">ご家族の声タイトル３</h3>
+                <p class="top-voice__meta font-title">山陽小野田市在住　C様</p>
+                <span class="top-voice__card-arrow">
+                  <img src="assets/img/common/icon-arrow.png" alt="">
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- 04 -->
+          <div class="top-voice__slide">
+            <a href="#" class="top-voice__card">
+              <div class="top-voice__image">
+                <img src="assets/img/top/voice02.jpg" alt="">
+              </div>
+              <div class="top-voice__body">
+                <span class="top-voice__category font-title">家族葬</span>
+                <h3 class="top-voice__card-title font-title">ご家族の声タイトル４</h3>
+                <p class="top-voice__meta font-title">宇部市在住　D様</p>
+                <span class="top-voice__card-arrow">
+                  <img src="assets/img/common/icon-arrow.png" alt="">
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="/voice/" class="top-voice__more font-title">
+          <span>ご家族の声をもっと見る</span>
+          <img src="assets/img/common/icon-arrow-white.png" alt="">
+        </a>
+      </div>
+    </section>
+
+    <!-- =================================
+  斎場案内
+================================= -->
+    <section class="top-hall">
+      <div class="top-hall__inner">
+        <div class="top-hall__heading">
+          <h2 class="top-hall__title font-title">斎場案内</h2>
+          <p class="top-hall__lead font-title">お近くの式場をご確認ください</p>
+        </div>
+
+        <div class="top-hall__map">
+          <picture>
+            <source media="(max-width: 767px)" srcset="assets/img/top/hall-map-sp.png">
+            <img src="assets/img/top/hall-map.png" alt="宇部・山陽小野田・阿知須・佐山をカバーする安穏会館の斎場案内">
+          </picture>
+        </div>
+
+        <div class="top-hall__list">
+          <!-- 01 -->
+          <a href="#" class="top-hall__card">
+            <div class="top-hall__image">
+              <img src="assets/img/top/hall01.jpg" alt="西斎場">
+            </div>
+            <div class="top-hall__body">
+              <h3 class="top-hall__card-title font-title">西斎場</h3>
+              <p class="top-hall__info font-title">山口県宇部市妻崎開作1230-1<br>TEL / 0836-45-0045<br>駐車場 200台</p>
+              <span class="top-hall__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+
+          <!-- 02 -->
+          <a href="#" class="top-hall__card">
+            <div class="top-hall__image">
+              <img src="assets/img/top/hall02.jpg" alt="中央斎場">
+            </div>
+            <div class="top-hall__body">
+              <h3 class="top-hall__card-title font-title">中央斎場</h3>
+              <p class="top-hall__info font-title">山口県宇部市妻崎開作1230-1<br>TEL / 0836-45-0045<br>駐車場 200台</p>
+              <span class="top-hall__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+
+          <!-- 03 -->
+          <a href="#" class="top-hall__card">
+            <div class="top-hall__image">
+              <img src="assets/img/top/hall03.jpg" alt="東斎場">
+            </div>
+            <div class="top-hall__body">
+              <h3 class="top-hall__card-title font-title">東斎場</h3>
+              <p class="top-hall__info font-title">山口県宇部市妻崎開作1230-1<br>TEL / 0836-45-0045<br>駐車場 200台</p>
+              <span class="top-hall__arrow">
+                <img src="assets/img/common/icon-arrow.png" alt="">
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <a href="/hall/" class="top-hall__more font-title">
+          <span>斎場の詳細はこちらから</span>
+          <img src="assets/img/common/icon-arrow-white.png" alt="">
+        </a>
+      </div>
+    </section>
+
+    <!-- =================================
+  ご相談・資料請求
+================================= -->
+    <section class="top-cta top-cta--simple">
+      <div class="top-cta__inner">
+        <div class="top-cta__block top-cta__block--tel">
+          <a href="tel:0120594166" class="top-cta__button top-cta__button--tel">
+            <span class="top-cta__icon">
+              <img src="assets/img/common/icon-tel.png" alt="">
+            </span>
+            <span class="top-cta__button-content">
+              <strong class="top-cta__tel-number font-num">0120-59-4166</strong>
+              <span class="top-cta__button-text font-title"><strong>通話無料</strong> <span
+                  class="font-num">24</span>時間<span class="font-num">365</span>日受付</span>
+            </span>
+          </a>
+        </div>
+        <div class="top-cta__block top-cta__block--document">
+          <a href="/contact/" class="top-cta__button top-cta__button--document">
+            <span class="top-cta__icon">
+              <img src="assets/img/common/icon-document.png" alt="">
+            </span>
+            <span class="top-cta__button-content">
+              <strong class="top-cta__document-title font-title">資料請求はこちら</strong>
+              <span class="top-cta__button-text font-title">メールフォーム <span class="font-num">24</span>時間<span
+                  class="font-num">365</span>日受付</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================
+  お問い合わせ
+================================= -->
+    <section class="top-contact">
+      <div class="top-contact__inner">
+        <div class="top-contact__heading">
+          <h2 class="top-contact__title font-title">お問い合わせ</h2>
+          <p class="top-contact__lead font-title"><span class="font-num">24</span>時間<span
+              class="font-num">365</span>日対応<br>お急ぎの場合、まずはお電話ください。</p>
+        </div>
+
+        <div class="top-contact__list">
+          <!-- 電話 -->
+          <div class="top-contact__item top-contact__item--tel">
+            <a href="tel:0120594166" class="top-contact__button top-contact__button--tel">
+              <span class="top-contact__icon">
+                <img src="assets/img/common/icon-tel.png" alt="">
+              </span>
+              <span class="top-contact__button-content">
+                <strong class="top-contact__tel-number font-num">0120-59-4166</strong>
+                <span class="top-contact__button-text font-title"><strong>通話無料</strong> <span
+                    class="font-num">24</span>時間<span class="font-num">365</span>日受付</span>
+              </span>
+            </a>
+            <p class="top-contact__tel-lead font-title">お困りの方は今すぐこちらにお電話ください<br>通話無料 <span
+                class="font-num">24</span>時間<span class="font-num">365</span>日 即時対応<br>生前のご相談もこちらから</p>
+          </div>
+
+          <!-- 資料請求 -->
+          <div class="top-contact__item top-contact__item--document">
+            <a href="/contact/" class="top-contact__button top-contact__button--document">
+              <span class="top-contact__icon">
+                <img src="assets/img/common/icon-document.png" alt="">
+              </span>
+              <span class="top-contact__button-content">
+                <strong class="top-contact__document-title font-title">資料請求はこちら</strong>
+                <span class="top-contact__button-text font-title">メールフォーム <span class="font-num">24</span>時間<span
+                    class="font-num">365</span>日受付</span>
+              </span>
+            </a>
+            <p class="top-contact__document-lead font-title">カンタン入力<br>無料資料をお送りします（電子書類 or 紙書類）</p>
+            <p class="top-contact__note font-title">紙書類の場合はプライバシーを考慮した発送も選べます</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
   </main>
   <!--main end-->
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <!-- フッターロゴ -->
-      <div class="site-footer__logo">
-        <a href="/">Site Title</a>
+  <footer class="footer">
+
+    <!-- ページトップ -->
+    <a href="#" class="footer__pagetop">
+      <img src="assets/img/common/pagetop.png" alt="ページTOPへ">
+    </a>
+
+    <!-- メイン -->
+    <div class="footer__main">
+
+      <div class="footer__inner">
+
+        <!-- ロゴ・キャッチ -->
+        <div class="footer__brand">
+          <a href="/" class="footer__logo">
+            <img src="assets/img/common/logo-white.png" alt="安穏会館">
+          </a>
+
+          <p class="footer__catch font-title">
+            家族葬は安穏会館にお任せください。
+          </p>
+        </div>
+
+        <!-- PCナビ -->
+        <nav class="footer__nav">
+          <ul class="footer__nav-list">
+            <li><a href="/">ホーム</a></li>
+            <li><a href="/plan/">プランのご案内</a></li>
+            <li><a href="/flow/">ご葬儀の流れ</a></li>
+            <li><a href="/voice/">ご家族の声</a></li>
+            <li><a href="/hall/">斎場案内</a></li>
+            <li><a href="/contact/">お問い合わせ</a></li>
+          </ul>
+
+          <ul class="footer__subnav">
+            <li><a href="/about/">このサイトについて</a></li>
+            <li><a href="/privacy/">個人情報保護方針</a></li>
+            <li><a href="/sitemap/">サイトマップ</a></li>
+          </ul>
+        </nav>
+
+        <!-- SP斎場情報 -->
+        <div class="footer__hall footer__hall--sp">
+
+          <div class="footer__hall-item">
+            <p class="footer__hall-name">西斎場</p>
+            <p>
+              山口県宇部市妻崎開作 1230-1<br>
+              駐車場 200 台
+            </p>
+          </div>
+
+          <div class="footer__hall-item">
+            <p class="footer__hall-name">中央斎場</p>
+            <p>
+              山口県宇部市西岐波下請川<br>
+              駐車場 200 台
+            </p>
+          </div>
+
+          <div class="footer__hall-item">
+            <p class="footer__hall-name">東斎場</p>
+            <p>
+              山口県宇部市東岐波 1331-1<br>
+              駐車場 200 台
+            </p>
+          </div>
+
+        </div>
+
+        <!-- copyright -->
+        <p class="footer__copyright font-num">
+          © 2014-2026 An-non kaikan.
+        </p>
+
       </div>
 
-      <!-- フッターナビ -->
-      <nav class="site-footer__nav">
-        <ul class="site-footer__nav-list">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Service</a></li>
-          <li><a href="#">Works</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
     </div>
 
-    <!-- コピーライト -->
-    <div class="site-footer__bottom">
-      <p class="site-footer__copyright">
-        © 2026 Site Title
-      </p>
+
+    <!-- PC斎場情報 -->
+    <div class="footer__hall-area">
+
+      <div class="footer__hall footer__hall--pc">
+
+        <div class="footer__hall-item">
+          <p class="footer__hall-name">西斎場</p>
+          <p>
+            山口県宇部市妻崎開作 1230-1<br>
+            駐車場 200 台
+          </p>
+        </div>
+
+        <div class="footer__hall-item">
+          <p class="footer__hall-name">中央斎場</p>
+          <p>
+            山口県宇部市西岐波下請川<br>
+            駐車場 200 台
+          </p>
+        </div>
+
+        <div class="footer__hall-item">
+          <p class="footer__hall-name">東斎場</p>
+          <p>
+            山口県宇部市東岐波 1331-1<br>
+            駐車場 200 台
+          </p>
+        </div>
+
+      </div>
+
     </div>
+
+
+    <!-- 電話 -->
+    <div class="footer__tel-area">
+
+      <a href="tel:0120594166" class="footer__tel">
+
+        <span class="footer__tel-label font-title">
+          通話無料&nbsp; <span class="font-num">24</span> 時間<span class="font-num">365</span> 日受付
+        </span>
+
+        <span class="footer__tel-number font-num">
+          0120-59-4166
+        </span>
+
+      </a>
+
+    </div>
+
   </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-  <script src="assets/js/script.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 
