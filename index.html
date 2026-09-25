@@ -2,57 +2,11 @@
 <html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 
 <head>
-  <!-- 基本 -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- タイトル・ディスクリプション（仮） -->
-  <title>サイトタイトル</title>
-  <meta name="description" content="サイトの説明文が入ります。">
-
-  <!-- noindex（公開時は削除） -->
-  <meta name="robots" content="noindex, nofollow">
-
-  <!-- ファビコン -->
-  <link rel="icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-  <!-- OGP（仮・あとでWP化） -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="サイトタイトル">
-  <meta property="og:description" content="サイトの説明文が入ります。">
-  <meta property="og:url" content="https://example.com/">
-  <meta property="og:image" content="https://example.com/ogp.jpg">
-  <meta property="og:site_name" content="サイト名">
-
-  <!-- Twitterカード -->
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/html5reset-1.6.1.css">
-  <link rel="stylesheet" href="assets/css/style.css?20260121">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-  <!-- Google Fonts（使う場合） -->
-  <!--
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  -->
-
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head>
-
-
-<!-- モトクロス用 -->
-<!-- <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="email=no,telephone=no,address=no">
-  <title>宇部市スポーツ協会</title>
+  <title>安穏会館</title>
   <meta name="description" content="<?php echo $des; ?>">
   <meta property="og:type" content="website">
   <meta property="og:title"
@@ -62,49 +16,61 @@
     content="<?php wp_title( '-', true, 'right' ); ?><?php bloginfo( 'name' ); ?> | <?php echo $des; ?>">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/img/fb.jpg">
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title"
     content="<?php wp_title( '-', true, 'right' ); ?><?php bloginfo( 'name' ); ?> | <?php echo $des; ?>">
   <meta name="twitter:description" content="<?php echo $des; ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;800&family=Noto+Sans:wght@300;400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
   <link rel="stylesheet" href="assets/css/html5reset-1.6.1.css">
   <link rel="stylesheet" href="assets/css/style.css?20260121">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head> -->
+</head>
 
 
 
 <body class="wrap">
-  <header class="site-header">
-    <div class="site-header__inner">
-      <!-- ロゴ -->
-      <h1 class="site-header__logo">
-        <a href="/">Site Title</a>
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="header__logo">
+        <a href="/">
+          <img src="assets/img/common/logo.png" alt="安穏会館">
+        </a>
       </h1>
 
-      <!-- PC用ナビ -->
-      <nav class="site-header__nav">
-        <ul class="site-header__nav-list">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Service</a></li>
-          <li><a href="#">Works</a></li>
-          <li><a href="#">Contact</a></li>
+      <nav class="header__nav">
+        <ul class="header__list">
+          <li class="header__item">
+            <a href="/">ホーム</a>
+          </li>
+          <li class="header__item">
+            <a href="/plan/">プランのご案内</a>
+          </li>
+          <li class="header__item">
+            <a href="/flow/">ご葬儀の流れ</a>
+          </li>
+          <li class="header__item">
+            <a href="/voice/">ご家族の声</a>
+          </li>
+          <li class="header__item">
+            <a href="/hall/">斎場案内</a>
+          </li>
+          <li class="header__item">
+            <a href="/contact/">お問い合わせ</a>
+          </li>
         </ul>
       </nav>
 
-      <!-- ハンバーガー -->
-      <button class="site-header__menu-btn" type="button" aria-label="メニュー" aria-expanded="false">
+      <button class="header__menu" type="button" aria-label="メニューを開く" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -112,23 +78,75 @@
     </div>
   </header>
 
-  <!-- ▼ SP用 展開メニュー -->
-  <nav class="sp-menu" aria-hidden="true">
-    <div class="sp-menu__inner">
-      <ul class="sp-menu__list">
-        <li class="sp-menu__item"><a class="sp-menu__link" href="#">About</a></li>
-        <li class="sp-menu__item"><a class="sp-menu__link" href="#">Service</a></li>
-        <li class="sp-menu__item"><a class="sp-menu__link" href="#">Works</a></li>
-        <li class="sp-menu__item"><a class="sp-menu__link" href="#">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="fixed-cta">
+    <a class="fixed-cta__item fixed-cta__item--tel" href="tel:0120594166">
+      <span class="fixed-cta__icon">
+        <img src="assets/img/common/icon-tel.png" alt="">
+      </span>
+      <span class="fixed-cta__content">
+        <span class="fixed-cta__tel">0120-59-4166</span>
+        <span class="fixed-cta__text font-title">
+          <span class="fixed-cta__free">通話無料</span>
+          <span class="font-num">24</span>時間<span class="font-num">365</span>日受付
+        </span>
+      </span>
+    </a>
 
-  <div class="sp-menu__overlay" aria-hidden="true"></div>
-
-  <div class="main page-top" style="height: 800px; background-color: pink;">
-
+    <a class="fixed-cta__item fixed-cta__item--document" href="/contact/">
+      <span class="fixed-cta__icon">
+        <img src="assets/img/common/icon-document.png" alt="">
+      </span>
+      <span class="fixed-cta__content">
+        <span class="fixed-cta__title font-title">資料請求はこちら</span>
+        <span class="fixed-cta__text font-title">
+          メールフォーム<span class="font-num">24</span>時間<span class="font-num">365</span>日受付
+        </span>
+      </span>
+    </a>
   </div>
+
+  <main class="main page-top">
+
+    <section class="top-mv">
+      <div class="top-mv__inner">
+        <div class="top-mv__panel">
+          <div class="top-mv__main">
+            <div class="top-mv__area font-title">
+              <span>宇部 ／ 山陽小野田 ／ 阿知須 ／ 佐山</span>
+              <strong>地域に根ざした葬祭式場</strong>
+            </div>
+
+            <div class="top-mv__copy">
+              <h1 class="top-mv__title font-title">
+                家族葬は<span class="top-mv__annon"><small>あんのん</small>安穏</span>会館<span class="top-mv__small">に</span><br>
+                お任せください
+              </h1>
+            </div>
+          </div>
+
+          <div class="top-mv__plan">
+            <div class="top-mv__plan-title font-title">
+              <strong>家族葬</strong>
+              <span>○○○プラン</span>
+            </div>
+
+            <div class="top-mv__price">
+              <strong>15</strong>
+              <span class="top-mv__unit font-title">万円</span>
+              <span class="top-mv__tax font-title">税込</span>
+              <span class="top-mv__from">〜</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="top-mv__person">
+          <img src="assets/img/top/mv-person.png" alt="">
+        </div>
+      </div>
+    </section>
+
+
+  </main>
   <!--main end-->
 
   <footer class="site-footer">
@@ -156,6 +174,9 @@
       </p>
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="assets/js/script.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 

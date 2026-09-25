@@ -38,12 +38,6 @@ a {
   }
 }
 
-img {
-  width: 100%;
-  height: auto;
-  vertical-align: top;
-}
-
 ul,
 ol,
 li {
@@ -81,21 +75,22 @@ dt {
   }
 }
 
+
 /* =========================
    メイン
 ========================= */
 
-.main {
-  margin: 90px 0 0;
+// .main {
+//   margin: 90px 0 0;
 
-  @include pc {
-    margin: 64px 0 0;
-  }
+//   @include pc {
+//     margin: 64px 0 0;
+//   }
 
-  @include tab {
-    margin: 56px 0 0;
-  }
-}
+//   @include tab {
+//     margin: 56px 0 0;
+//   }
+// }
 
 /* =========================
    パンくずリスト
@@ -116,172 +111,478 @@ dt {
 }
 
 
+
+/* =================================
+  フォント
+================================= */
+
+.font-title {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.font-num {
+  font-family: "Montserrat", sans-serif;
+}
+
+
 /* =================================
 header
  ================================= */
-.site-header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 72px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
   z-index: 1000;
+  width: 100%;
+  background: #fff;
+
+  @include sp {
+    top: auto;
+    bottom: calc(66px + env(safe-area-inset-bottom));
+  }
 
   &__inner {
-    max-width: 1200px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 24px;
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    height: 80px;
+    padding: 0 16px;
+
+    @include tab {
+      height: 60px;
+      padding: 0 20px;
+    }
+
+    @include sp {
+      height: 66px;
+      padding: 5px 14px;
+    }
   }
 
   &__logo {
-    font-size: 18px;
-    font-weight: 700;
+    flex-shrink: 0;
+    width: 180px;
+
+    @include pc {
+      width: 120px;
+    }
+
+    @include sp {
+      width: 170px;
+    }
 
     a {
-      color: #222;
-      text-decoration: none;
+      display: block;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
   }
 
-  /* PCナビ：SPでは非表示 */
   &__nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     @include tab {
-      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      z-index: 999;
+      width: 100%;
+      height: calc(100dvh - 60px);
+      padding: 30px 20px;
+      background: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transform: none;
+      transition: opacity .3s, visibility .3s;
+
+      &.is-open {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @include sp {
+      top: 0;
+      bottom: calc(132px + env(safe-area-inset-bottom));
+      height: auto;
+      padding: 30px 20px;
     }
   }
 
-  &__nav-list {
+  &__list {
     display: flex;
+    align-items: center;
     gap: 32px;
+    white-space: nowrap;
 
-    a {
-      color: #222;
-      text-decoration: none;
-      font-weight: 600;
+    @include pc {
+      gap: 16px;
     }
-  }
-
-  /* ハンバーガー：SPのみ表示 */
-  &__menu-btn {
-    display: none;
-    width: 32px;
-    height: 24px;
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
 
     @include tab {
       display: block;
+    }
+  }
+
+  &__item {
+    @include tab {
+      border-bottom: 1px solid #ddd;
+    }
+
+    a {
+      display: block;
+      color: #111;
+      font-size: 16px;
+      text-decoration: none;
+      transition: opacity .3s;
+
+      @media (hover: hover) {
+        &:hover {
+          opacity: .6;
+        }
+      }
+
+      @include pc {
+        font-size: 15px;
+      }
+
+      @include tab {
+        padding: 18px 10px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include tab {
+      position: relative;
+      display: block;
+      width: 32px;
+      height: 24px;
+      margin-left: auto;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
     }
 
     span {
       position: absolute;
       left: 0;
+      display: block;
       width: 100%;
       height: 2px;
-      background: #222;
-      transition: all 0.3s ease;
+      background: #333;
+      transition: top .3s, bottom .3s, transform .3s, opacity .3s;
 
-      &:nth-child(1) { top: 0; }
-      &:nth-child(2) { top: 11px; }
-      &:nth-child(3) { bottom: 0; }
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 11px;
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+      }
     }
 
     &.is-open {
-      span:nth-child(1) { top: 11px; transform: rotate(45deg); }
-      span:nth-child(2) { opacity: 0; }
-      span:nth-child(3) { bottom: 11px; transform: rotate(-45deg); }
+      span {
+        &:nth-child(1) {
+          top: 11px;
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          bottom: 11px;
+          transform: rotate(-45deg);
+        }
+      }
     }
+
+    @include sp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 48px;
+      height: 50px;
+      margin-left: auto;
+      padding: 18px 0 0 0;
+
+      span {
+        position: static;
+        display: block;
+        width: 40px;
+        height: 2px;
+        background: #555;
+        opacity: 1;
+        transform: none;
+
+        &:nth-child(1) {
+          order: 1;
+          top: auto;
+        }
+
+        &:nth-child(2) {
+          order: 3;
+          top: auto;
+        }
+
+        &:nth-child(3) {
+          display: none;
+          bottom: auto;
+        }
+      }
+
+      &::after {
+        position: static;
+        order: 2;
+        content: "menu";
+        color: #555;
+        font-family: "Jost", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      &.is-open {
+        &::after {
+          content: "close";
+        }
+
+        span {
+          opacity: 1;
+          transform: none;
+
+          &:nth-child(1) {
+            top: auto;
+            transform: none;
+          }
+
+          &:nth-child(2) {
+            top: auto;
+            display: block;
+            opacity: 1;
+            transform: none;
+          }
+
+          &:nth-child(3) {
+            display: none;
+            bottom: auto;
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  padding-top: 80px;
+
+  @include tab {
+    padding-top: 60px;
+  }
+
+  @include sp {
+    padding-top: 0;
   }
 }
 
 /* =========================
-  SPメニュー
+ 追従メニュー
 ========================= */
-.sp-menu {
+.fixed-cta {
   position: fixed;
-  top: 72px;
-  right: 0;
-  width: min(360px, 86vw);
-  height: calc(100vh - 72px);
-  background: #fff;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
+  top: 18px;
+  right: 20px;
   z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 240px;
 
-  /* PCでは非表示 */
-  display: none;
+  @media screen and (max-width: 1250px) {
+    top: 90px;
+  }
 
   @include tab {
-    display: block;
-  }
-
-  &.is-open {
-    transform: translateX(0);
-  }
-
-  &__inner {
-    height: 100%;
-    padding: 32px 24px;
-    overflow-y: auto;
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: #fff;
   }
 
   &__item {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 16px;
-  }
-
-  &__link {
-    display: block;
-    color: #222;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 62px;
+    padding: 6px;
+    border-radius: 16px;
+    color: #fff;
     text-decoration: none;
+    transition: opacity .3s;
+
+    @include tab {
+      flex: 0 0 50%;
+      gap: 6px;
+      width: 50%;
+      height: 66px;
+      min-width: 0;
+      padding: 7px 8px;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    &::after {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      content: "";
+      opacity: .35;
+
+      @include tab {
+        display: none;
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    &--tel {
+      background: #f00;
+
+      &::after {
+        background: #f00;
+      }
+    }
+
+    &--document {
+      background: #3fa9f5;
+
+      &::after {
+        background: #3fa9f5;
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-right: 12px;
+
+    @include tab {
+      width: 30px;
+      height: 30px;
+      margin-right: 0;
+    }
+
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1;
+  }
+
+  &__tel {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    white-space: nowrap;
+
+    @include tab {
+      font-size: clamp(16px, 4.5vw, 20px);
+      letter-spacing: 0;
+    }
+  }
+
+  &__title {
+    font-size: 17px;
     font-weight: 700;
+    letter-spacing: .04em;
+    white-space: nowrap;
+
+    @include tab {
+      font-size: clamp(14px, 4vw, 18px);
+      letter-spacing: 0;
+    }
+  }
+
+  &__text {
+    margin-top: 5px;
+    color: rgba(255, 255, 255, .8);
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    @include tab {
+      margin-top: 4px;
+      font-size: clamp(8px, 2.4vw, 10px);
+      letter-spacing: 0;
+    }
+  }
+
+  &__free {
+    margin-right: 3px;
+    font-size: 1.2em;
+
+    @include tab {
+      margin-right: 2px;
+      font-size: 1.15em;
+    }
   }
 }
 
-/* オーバーレイ */
-.sp-menu__overlay {
-  position: fixed;
-  top: 72px;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 72px);
-  background: rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 1050;
-
-  display: none;
-
+body {
   @include tab {
-    display: block;
-  }
-
-  &.is-open {
-    opacity: 1;
-    visibility: visible;
+    padding-bottom: calc(66px + env(safe-area-inset-bottom));
   }
 }
-
-/* 背景スクロール停止 */
-body.is-sp-menu-open {
-  overflow: hidden;
-}
-
 
 
 

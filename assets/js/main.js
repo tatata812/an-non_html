@@ -3,52 +3,27 @@ $(function () {
   /* =================================
   ヘッダー
    ================================= */
-  $(function () {
-    const $btn = $('.site-header__menu-btn');
-    const $menu = $('.sp-menu');
-    const $overlay = $('.sp-menu__overlay');
-    const $body = $('body');
+$('.header__menu').on('click', function () {
+  const isOpen = $(this).toggleClass('is-open').hasClass('is-open');
 
-    function openMenu() {
-      $btn.addClass('is-open').attr('aria-expanded', 'true');
-      $menu.addClass('is-open').attr('aria-hidden', 'false');
-      $overlay.addClass('is-open').attr('aria-hidden', 'false');
-      $body.addClass('is-sp-menu-open');
-    }
+  $('.header__nav').toggleClass('is-open', isOpen);
+  $('body').toggleClass('is-menu-open', isOpen);
 
-    function closeMenu() {
-      $btn.removeClass('is-open').attr('aria-expanded', 'false');
-      $menu.removeClass('is-open').attr('aria-hidden', 'true');
-      $overlay.removeClass('is-open').attr('aria-hidden', 'true');
-      $body.removeClass('is-sp-menu-open');
-    }
-
-    // ハンバーガーでトグル
-    $btn.on('click', function () {
-      if ($menu.hasClass('is-open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
-
-    // オーバーレイで閉じる
-    $overlay.on('click', function () {
-      closeMenu();
-    });
-
-    // メニュー内リンクを押したら閉じる
-    $menu.on('click', 'a', function () {
-      closeMenu();
-    });
-
-    // Escで閉じる
-    $(document).on('keydown', function (e) {
-      if (e.key === 'Escape' && $menu.hasClass('is-open')) {
-        closeMenu();
-      }
-    });
+  $(this).attr({
+    'aria-expanded': isOpen,
+    'aria-label': isOpen ? 'メニューを閉じる' : 'メニューを開く'
   });
+});
+
+$('.header__nav a').on('click', function () {
+  $('.header__menu').removeClass('is-open').attr({
+    'aria-expanded': 'false',
+    'aria-label': 'メニューを開く'
+  });
+
+  $('.header__nav').removeClass('is-open');
+  $('body').removeClass('is-menu-open');
+});
 
   /* =================================
   ページ内リンク　ヘッダーの高さ考慮
@@ -115,3 +90,70 @@ $(function () {
 
 
 })
+
+/* =================================
+  GSAP
+================================= */
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+/* =================================
+  メインビジュアル
+================================= */
+
+const mvTl = gsap.timeline({
+  defaults: {
+    ease: "power2.out"
+  }
+});
+
+// パネル
+mvTl.from(".top-mv__panel", {
+  y: 30,
+  opacity: 0,
+  duration: .8
+});
+
+// エリア・葬祭式場テキスト
+mvTl.from(".top-mv__area", {
+  y: 15,
+  opacity: 0,
+  duration: .6
+}, "-=.4");
+
+// メイン見出し
+mvTl.from(".top-mv__title", {
+  y: 20,
+  opacity: 0,
+  duration: .7
+}, "-=.4");
+
+// プラン名
+mvTl.from(".top-mv__plan-title", {
+  y: 20,
+  opacity: 0,
+  duration: .6
+}, "-=.35");
+
+// 料金
+mvTl.from(".top-mv__price", {
+  y: 15,
+  opacity: 0,
+  duration: .6
+}, "-=.4");
+
+// 人物
+mvTl.from(".top-mv__person", {
+  x: 40,
+  opacity: 0,
+  duration: .9
+}, "-=.7");
+
+
+/* =================================
+  下層セクション
+================================= */
+
+// この下にScrollTriggerを使った
+// 各セクションのアニメーションを追加

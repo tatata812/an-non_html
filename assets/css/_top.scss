@@ -2,302 +2,372 @@
 
 /* トップページスタイルシート */
 /* =================================
+  メインビジュアル
+================================= */
 
- ================================= */
+.top-mv {
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+  background: url("../img/top/mv-bg.jpg") center / cover no-repeat;
 
-.aaa {
+  &__inner {
+    position: relative;
+    width: 800px;
+    height: 100%;
+    margin: 0 auto;
+  }
 
-  &__ {}
+  &__panel {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    width: 800px;
+    overflow: hidden;
+    border-radius: 28px;
+    transform: translateY(-50%);
+  }
 
-  &__ {}
+  &__main {
+    height: 290px;
+    padding: 35px 80px;
+    background: rgba(255, 255, 255, .94);
+  }
 
-  &__ {}
+  &__area {
+    display: flex;
+    align-items: baseline;
+    gap: 30px;
+    color: #45c6a4;
 
-  &__ {}
+    span {
+      flex-shrink: 0;
+      font-size: 16px;
+      font-weight: 400;
+      white-space: nowrap;
+    }
 
-  &__ {}
+    strong {
+      flex-shrink: 0;
+      font-size: 26px;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+  }
 
-  &__ {}
+  &__copy {
+    margin-top: 35px;
+  }
 
-  &__ {}
+  &__title {
+    margin: 0;
+    color: #555;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -.04em;
+  }
 
-  &__ {}
+  &__annon {
+    position: relative;
+    display: inline-block;
 
-  &__ {}
+    small {
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      width: max-content;
+      color: #555;
+      font-size: .4em;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0;
+      transform: translateX(-50%);
+    }
+  }
 
-  &__ {}
+  &__small {
+    font-size: .65em;
+  }
 
-  &__ {}
+  &__plan {
+    height: 240px;
+    padding: 30px 80px;
+    background: rgba(72, 211, 174, .9);
+  }
 
-  &__ {}
+  &__plan-title {
+    display: flex;
+    align-items: baseline;
+    color: #fff;
+    line-height: 1;
 
-  &__ {}
+    strong {
+      font-size: 64px;
+      font-weight: 400;
+    }
 
-  &__ {}
+    span {
+      margin-left: 20px;
+      font-size: 36px;
+    }
+  }
 
-  &__ {}
+  &__price {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 15px;
+    color: #ff6099;
+    line-height: 1;
 
-  &__ {}
+    >strong {
+      font-size: 92px;
+      font-weight: 400;
+    }
+  }
 
-  &__ {}
+  &__unit {
+    margin: 0 4px 8px;
+    font-size: 42px;
+    font-weight: 700;
+  }
 
+  &__tax {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1;
+    writing-mode: vertical-rl;
+  }
 
-}
+  &__from {
+    margin: 0 0 10px 8px;
+    font-size: 40px;
+  }
+
+  &__person {
+    position: absolute;
+    right: -133px;
+    bottom: 0;
+    z-index: 2;
+    width: 250px;
+    pointer-events: none;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  /* ================================
+    PC縮小
+  ================================= */
+
+  @include pc {
+    &__inner {
+      width: min(calc(100% - 80px), 800px);
+    }
+
+    &__panel {
+      width: 100%;
+    }
+
+    &__main {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+
+    &__area {
+      gap: 20px;
+
+      span {
+        font-size: 14px;
+      }
+
+      strong {
+        font-size: 20px;
+      }
+    }
+
+    &__title {
+      font-size: 46px;
+    }
+
+    &__plan {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+
+    &__plan-title {
+      strong {
+        font-size: 48px;
+      }
+
+      span {
+        font-size: 28px;
+      }
+    }
+
+    &__person {
+      right: -90px;
+      width: 230px;
+    }
+  }
 
 /* =================================
+  スマートフォン
+================================= */
 
- ================================= */
+@include sp {
+  height: calc(100dvh - 132px - env(safe-area-inset-bottom));
+  min-height: 0;
+  padding: 20px 20px 0;
 
-.aaa {
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
 
-  &__ {}
+  &__panel {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 20px;
+    transform: none;
+  }
 
-  &__ {}
+  /* -------------------------------
+    白エリア
+  -------------------------------- */
 
-  &__ {}
+  &__main {
+    height: 44%;
+    min-height: 0;
+    padding: 24px 20px;
+  }
 
-  &__ {}
+  &__area {
+    display: block;
 
-  &__ {}
+    span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
 
-  &__ {}
+    strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 24px;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+  }
 
-  &__ {}
+  &__copy {
+    margin-top: 34px;
+  }
 
-  &__ {}
+  &__title {
+    margin: 0;
+    font-size: clamp(28px, 8vw, 35px);
+    line-height: 1.45;
+    letter-spacing: -.05em;
+    white-space: nowrap;
+  }
 
-  &__ {}
+  &__annon {
+    position: relative;
+    display: inline-block;
 
-  &__ {}
+    small {
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      width: max-content;
+      font-size: .4em;
+      font-weight: 400;
+      line-height: 1;
+      transform: translateX(-50%);
+    }
+  }
 
-  &__ {}
+  &__small {
+    font-size: .65em;
+  }
 
-  &__ {}
+  /* -------------------------------
+    緑エリア
+  -------------------------------- */
 
-  &__ {}
+  &__plan {
+    height: 240px;
+    padding: 28px 20px;
+  }
 
-  &__ {}
+  &__plan-title {
+    display: block;
 
-  &__ {}
+    strong {
+      display: block;
+      font-size: 50px;
+      line-height: 1;
+    }
 
-  &__ {}
+    span {
+      display: block;
+      margin: 8px 0 0;
+      font-size: 27px;
+      line-height: 1.2;
+    }
+  }
 
-  &__ {}
+  /* -------------------------------
+    料金
+  -------------------------------- */
 
+  &__price {
+    margin-top: 18px;
 
+    > strong {
+      font-family: "Montserrat", sans-serif;
+      font-size: 72px;
+      font-weight: 500;
+    }
+  }
+
+  &__unit {
+    margin: 0 3px 6px;
+    font-size: 30px;
+  }
+
+  &__tax {
+    margin-bottom: 8px;
+    font-size: 10px;
+  }
+
+  &__from {
+    margin: 0 0 7px 4px;
+    font-size: 27px;
+  }
+
+  /* -------------------------------
+    人物
+  -------------------------------- */
+
+  &__person {
+    top: auto;
+    right: -5px;
+    bottom: 0;
+    z-index: 3;
+    width: 43%;
+  }
 }
-
-/* =================================
-
- ================================= */
-
-.aaa {
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-
-}
-
-/* =================================
-
- ================================= */
-
-.aaa {
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-
-}
-
-/* =================================
-
- ================================= */
-
-.aaa {
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-
-}
-
-/* =================================
-
- ================================= */
-
-.aaa {
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-
-}
-
-/* =================================
-
- ================================= */
-
-.aaa {
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-  &__ {}
-
-
 }
