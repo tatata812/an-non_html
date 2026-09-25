@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+
+<head>
+  <!-- 基本 -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- タイトル・ディスクリプション（仮） -->
+  <title>サイトタイトル</title>
+  <meta name="description" content="サイトの説明文が入ります。">
+
+  <!-- noindex（公開時は削除） -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- ファビコン -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- OGP（仮・あとでWP化） -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="サイトタイトル">
+  <meta property="og:description" content="サイトの説明文が入ります。">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/ogp.jpg">
+  <meta property="og:site_name" content="サイト名">
+
+  <!-- Twitterカード -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/html5reset-1.6.1.css">
+  <link rel="stylesheet" href="assets/css/style.css?20260121">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- Google Fonts（使う場合） -->
+  <!--
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  -->
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+
+<!-- モトクロス用 -->
+<!-- <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="email=no,telephone=no,address=no">
+  <title>宇部市スポーツ協会</title>
+  <meta name="description" content="<?php echo $des; ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:title"
+    content="<?php wp_title( '-', true, 'right' ); ?><?php bloginfo( 'name' ); ?> | <?php echo $des; ?>">
+  <meta property="og:description" content="<?php echo $des; ?>">
+  <meta property="og:site_name"
+    content="<?php wp_title( '-', true, 'right' ); ?><?php bloginfo( 'name' ); ?> | <?php echo $des; ?>">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/img/fb.jpg">
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title"
+    content="<?php wp_title( '-', true, 'right' ); ?><?php bloginfo( 'name' ); ?> | <?php echo $des; ?>">
+  <meta name="twitter:description" content="<?php echo $des; ?>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;800&family=Noto+Sans:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <link rel="stylesheet" href="assets/css/html5reset-1.6.1.css">
+  <link rel="stylesheet" href="assets/css/style.css?20260121">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head> -->
+
+
+
+<body class="wrap">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <!-- ロゴ -->
+      <h1 class="site-header__logo">
+        <a href="/">Site Title</a>
+      </h1>
+
+      <!-- PC用ナビ -->
+      <nav class="site-header__nav">
+        <ul class="site-header__nav-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#">Works</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- ハンバーガー -->
+      <button class="site-header__menu-btn" type="button" aria-label="メニュー" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ▼ SP用 展開メニュー -->
+  <nav class="sp-menu" aria-hidden="true">
+    <div class="sp-menu__inner">
+      <ul class="sp-menu__list">
+        <li class="sp-menu__item"><a class="sp-menu__link" href="#">About</a></li>
+        <li class="sp-menu__item"><a class="sp-menu__link" href="#">Service</a></li>
+        <li class="sp-menu__item"><a class="sp-menu__link" href="#">Works</a></li>
+        <li class="sp-menu__item"><a class="sp-menu__link" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="sp-menu__overlay" aria-hidden="true"></div>
+
+  <div class="main page-top" style="height: 800px; background-color: pink;">
+
+  </div>
+  <!--main end-->
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <!-- フッターロゴ -->
+      <div class="site-footer__logo">
+        <a href="/">Site Title</a>
+      </div>
+
+      <!-- フッターナビ -->
+      <nav class="site-footer__nav">
+        <ul class="site-footer__nav-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#">Works</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- コピーライト -->
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">
+        © 2026 Site Title
+      </p>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
