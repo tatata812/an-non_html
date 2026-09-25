@@ -1,104 +1,8 @@
-@use "config"as *;
-
-/* トップページスタイルシート */
-/* =================================
-  共通
-================================= */
-
-.inner {
-  width: min(calc(100% - 40px), 1100px);
-  margin-inline: auto;
-
-  @include sp {
-    width: calc(100% - 40px);
-  }
-}
-
-
-/* -------------------------------
-  section title
--------------------------------- */
-
-.section-title {
-  text-align: center;
-
-  &__en {
-    display: block;
-    color: #45c6a4;
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-  }
-
-  &__main {
-    margin-top: 5px;
-    color: #45c6a4;
-    font-family: "Noto Sans JP", sans-serif;
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 1.4;
-
-    @include sp {
-      font-size: 30px;
-    }
-  }
-
-  &__text {
-    margin-top: 10px;
-    color: #555;
-    font-size: 16px;
-    line-height: 1.8;
-
-    @include sp {
-      font-size: 14px;
-    }
-  }
-}
-
-
-/* -------------------------------
-  more button
--------------------------------- */
-
-.more-button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: min(100%, 430px);
-  height: 50px;
-  margin-inline: auto;
-  border-radius: 999px;
-  color: #fff;
-  background: #45c6a4;
-  font-size: 15px;
-  text-decoration: none;
-  transition: opacity .3s;
-
-  @media (hover: hover) {
-    &:hover {
-      opacity: .7;
-    }
-  }
-
-  &__arrow {
-    position: absolute;
-    top: 50%;
-    right: 18px;
-    width: 24px;
-    transform: translateY(-50%);
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-  }
-}
+@use "config" as *;
 
 /* =================================
   メインビジュアル
 ================================= */
-
 .top-mv {
   position: relative;
   height: 620px;
@@ -215,7 +119,7 @@
     color: #ff6099;
     line-height: 1;
 
-    >strong {
+    > strong {
       font-size: 92px;
       font-weight: 400;
     }
@@ -253,10 +157,6 @@
       height: auto;
     }
   }
-
-  /* ================================
-    PC縮小
-  ================================= */
 
   @include pc {
     &__inner {
@@ -309,10 +209,6 @@
     }
   }
 
-  /* =================================
-  スマートフォン
-================================= */
-
   @include sp {
     height: calc(100dvh - 132px - env(safe-area-inset-bottom));
     min-height: 0;
@@ -335,10 +231,6 @@
       border-radius: 20px;
       transform: none;
     }
-
-    /* -------------------------------
-    白エリア
-  -------------------------------- */
 
     &__main {
       height: 44%;
@@ -397,10 +289,6 @@
       font-size: .65em;
     }
 
-    /* -------------------------------
-    緑エリア
-  -------------------------------- */
-
     &__plan {
       height: 240px;
       padding: 28px 20px;
@@ -423,14 +311,10 @@
       }
     }
 
-    /* -------------------------------
-    料金
-  -------------------------------- */
-
     &__price {
       margin-top: 18px;
 
-      >strong {
+      > strong {
         font-family: "Montserrat", sans-serif;
         font-size: 72px;
         font-weight: 500;
@@ -452,10 +336,6 @@
       font-size: 27px;
     }
 
-    /* -------------------------------
-    人物
-  -------------------------------- */
-
     &__person {
       top: auto;
       right: -5px;
@@ -469,7 +349,6 @@
 /* =================================
   まずはご相談ください
 ================================= */
-
 .top-consult {
   padding: 55px 0 65px;
   background: #fff;
@@ -545,10 +424,8 @@
   /* -------------------------------
     カード
   -------------------------------- */
-
   &__card {
     position: relative;
-    top: auto;
     align-self: start;
     display: grid;
     grid-template-rows: 185px 125px;
@@ -598,7 +475,7 @@
       height: auto;
       border-radius: 0;
 
-      &+& {
+      & + & {
         margin-top: 28px;
       }
 
@@ -734,7 +611,6 @@
 /* =================================
   ご相談・資料請求
 ================================= */
-
 .top-cta {
   padding: 70px 20px 90px;
   background: #fff;
@@ -862,23 +738,6 @@
     align-items: flex-start;
   }
 
-  &__button-text {
-    margin-top: 8px;
-    color: rgba(255, 255, 255, .75);
-    font-size: 16px;
-    line-height: 1;
-
-    strong {
-      font-size: 1.25em;
-      font-weight: 500;
-    }
-
-    @include sp {
-      margin-top: 6px;
-      font-size: 12px;
-    }
-  }
-
   &__tel-number {
     color: #fff;
     font-size: 38px;
@@ -907,6 +766,11 @@
     font-size: 16px;
     line-height: 1;
 
+    strong {
+      font-size: 1.25em;
+      font-weight: 500;
+    }
+
     @include sp {
       margin-top: 6px;
       font-size: 12px;
@@ -934,43 +798,42 @@
     }
   }
 
-&--dark {
-  padding: 70px 20px 80px;
-  background-color: #292a2c;
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(41, 42, 44, 0) 0%,
-      rgba(41, 42, 44, .15) 65%,
-      #292a2c 100%
-    ),
-    url("../img/top/cta-bg.png");
-  background-position: center, center -15px;
-  background-size: cover, cover;
-  background-repeat: no-repeat;
-
-  @include sp {
-    padding: 60px 15px 70px;
-  }
-
-  .top-cta__block--document {
-    margin-top: 55px;
+  &--dark {
+    padding: 70px 20px 80px;
+    background-color: #292a2c;
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(41, 42, 44, 0) 0%,
+        rgba(41, 42, 44, .15) 65%,
+        #292a2c 100%
+      ),
+      url("../img/top/cta-bg.png");
+    background-position: center, center -15px;
+    background-size: cover, cover;
+    background-repeat: no-repeat;
 
     @include sp {
-      margin-top: 45px;
+      padding: 60px 15px 70px;
+    }
+
+    .top-cta__block--document {
+      margin-top: 55px;
+
+      @include sp {
+        margin-top: 45px;
+      }
+    }
+
+    .top-cta__button {
+      margin-top: 0;
     }
   }
-
-  .top-cta__button {
-    margin-top: 0;
-  }
-}
 }
 
 /* =================================
   プランのご案内
 ================================= */
-
 .top-plan {
   padding: 65px 20px 75px;
   background: #fff6f9;
@@ -1007,6 +870,10 @@
     margin-top: 20px;
     line-height: 1;
 
+    @include sp {
+      margin-top: 15px;
+    }
+
     strong {
       display: inline-block;
       margin-left: 8px;
@@ -1021,10 +888,6 @@
         margin-left: 4px;
         font-size: 58px;
       }
-    }
-
-    @include sp {
-      margin-top: 15px;
     }
   }
 
@@ -1111,7 +974,6 @@
   /* -------------------------------
     カード
   -------------------------------- */
-
   &__card {
     display: block;
     overflow: hidden;
@@ -1265,7 +1127,7 @@
     transition: transform .3s ease, opacity .3s ease;
 
     @media screen and (max-width: 980px) {
-      margin: 40px auto 0;
+      margin: 80px auto 0;
     }
 
     @media (hover: hover) {
@@ -1303,10 +1165,10 @@
   background-image: url("../img/top/flow-bg.jpg");
   background-position: center;
   background-size: cover;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
 
-  @include tab{
-  padding: 80px 20px 330px;
+  @include tab {
+    padding: 80px 20px 330px;
   }
 
   @include sp {
@@ -1353,103 +1215,75 @@
     }
   }
 
-&__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 45px;
-  margin-top: 50px;
-
-  @include sp {
-    display: block;
-    width: min(100%, 350px);
-    margin: 40px auto 0;
-  }
-}
-
-/* -------------------------------
-  流れ
--------------------------------- */
-&__item {
-  position: relative;
-
-  &:not(:last-child)::after {
-    position: absolute;
-    top: 77.5px;
-    left: calc(50% + 77.5px);
-    width: calc(50% - 77.5px + 45px + 50% - 77.5px);
-    height: 1px;
-    background: rgba(255, 255, 255, .45);
-    content: "";
-  }
-
-  @include sp {
+  &__list {
     display: grid;
-    grid-template-columns: 125px 1fr;
-    gap: 35px;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+    margin-top: 50px;
 
-    & + & {
-      margin-top: 45px;
+    @include sp {
+      display: block;
+      width: min(100%, 350px);
+      margin: 40px auto 0;
     }
+  }
+
+  /* -------------------------------
+    流れ
+  -------------------------------- */
+  &__item {
+    position: relative;
 
     &:not(:last-child)::after {
-      top: 125px;
-      bottom: -45px;
-      left: 62.5px;
-      width: 1px;
-      height: auto;
-    }
-  }
-}
-
-&__step {
-  position: relative;
-  z-index: 2;
-  width: 155px;
-  height: 155px;
-  margin: 0 auto;
-
-  @include sp {
-    width: 125px;
-    height: 125px;
-    margin: 0;
-  }
-
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-}
-
-&__detail {
-  margin: 18px 0 0;
-  padding: 0 0 0 50px;
-  color: #ccc;
-  font-size: 12px;
-  line-height: 1.8;
-  list-style: none;
-
-  @include sp {
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-    line-height: 1.7;
-  }
-
-  li {
-    position: relative;
-    padding-left: 10px;
-
-    &::before {
       position: absolute;
-      top: 0;
-      left: 0;
-      content: "・";
+      top: 77.5px;
+      left: calc(50% + 77.5px);
+      width: calc(50% - 77.5px + 45px + 50% - 77.5px);
+      height: 1px;
+      background: rgba(255, 255, 255, .45);
+      content: "";
+    }
+
+    @include sp {
+      display: grid;
+      grid-template-columns: 125px 1fr;
+      gap: 35px;
+      align-items: start;
+
+      & + & {
+        margin-top: 45px;
+      }
+
+      &:not(:last-child)::after {
+        top: 125px;
+        bottom: -45px;
+        left: 62.5px;
+        width: 1px;
+        height: auto;
+      }
     }
   }
-}
+
+  &__step {
+    position: relative;
+    z-index: 2;
+    width: 155px;
+    height: 155px;
+    margin: 0 auto;
+
+    @include sp {
+      width: 125px;
+      height: 125px;
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
 
   &__detail {
     margin: 18px 0 0;
@@ -1457,10 +1291,9 @@
     color: #ccc;
     font-size: 12px;
     line-height: 1.8;
-    list-style: none;
 
     @include sp {
-      margin-top: 12px;
+      margin: 0;
       padding: 0;
       font-size: 13px;
       line-height: 1.7;
@@ -1522,28 +1355,24 @@
     }
   }
 
-&__flower {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  pointer-events: none;
-
-  picture {
-    display: block;
-  }
-
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  @include sp {
+  &__flower {
+    position: absolute;
+    right: 0;
     bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    picture {
+      display: block;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
   }
-}
 }
 
 /* =================================
@@ -1600,39 +1429,40 @@
     }
   }
 
-&__slider {
-  position: relative;
-  margin: 65px -12px 0;
-
-  .slick-list {
-    overflow: hidden;
-  }
-
-  .slick-track {
-    display: flex;
-  }
-
-  .slick-slide {
-    height: auto;
-    padding: 0 12px;
-
-    > div {
-      height: 100%;
-    }
-  }
-
-  @include sp {
-    margin: 50px 0 0;
+  &__slider {
+    position: relative;
+    margin: 65px -12px 0;
 
     .slick-list {
-      overflow: visible;
+      overflow: hidden;
+    }
+
+    .slick-track {
+      display: flex;
     }
 
     .slick-slide {
-      padding: 0 10px;
+      height: auto;
+      padding: 0 12px;
+
+      > div {
+        height: 100%;
+      }
+    }
+
+    @include sp {
+      margin: 50px 0 0;
+
+      .slick-list {
+        overflow: visible;
+      }
+
+      .slick-slide {
+        padding: 0 10px;
+      }
     }
   }
-}
+
   /* -------------------------------
     カード
   -------------------------------- */
@@ -1829,9 +1659,9 @@
   }
 
   &__heading {
-    text-align: center;
-    z-index: 10;
     position: relative;
+    z-index: 10;
+    text-align: center;
   }
 
   &__title {
