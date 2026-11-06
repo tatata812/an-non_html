@@ -1,4 +1,4 @@
-@use "config" as *;
+@use "config"as *;
 @use "top";
 @use "subpage";
 
@@ -670,10 +670,14 @@ body.is-menu-open {
 
   &__hall--pc {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
-    width: min(100%, 800px);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    width: min(100%, 960px);
     margin: 0 auto;
+
+    @include tab {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__hall--sp {
@@ -681,7 +685,7 @@ body.is-menu-open {
 
     @include sp {
       display: block;
-    margin: 30px auto 0;
+      margin: 30px auto 0;
       color: #fff;
       max-width: 200px;
     }
@@ -697,7 +701,7 @@ body.is-menu-open {
       font-size: 14px;
       line-height: 1.6;
 
-      & + & {
+      &+& {
         margin-top: 24px;
       }
     }
@@ -999,5 +1003,3 @@ body.is-menu-open {
     }
   }
 }
-
-

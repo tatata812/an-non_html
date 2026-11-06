@@ -359,52 +359,26 @@ gsap.utils.toArray('.top-cta__block').forEach(function (block) {
   プランのご案内
 ================================= */
 
-gsap.from('.top-plan__heading', {
-  scrollTrigger: {
-    trigger: '.top-plan',
-    start: 'top 80%',
-    once: true
-  },
-  y: 25,
-  opacity: 0,
-  duration: .8,
-  ease: 'power2.out'
-});
-
-gsap.from('.top-plan__ribbon', {
-  scrollTrigger: {
-    trigger: '.top-plan__ribbon',
-    start: 'top 85%',
-    once: true
-  },
-  y: 20,
-  opacity: 0,
-  duration: .7,
-  ease: 'power2.out'
-});
-
 gsap.from('.top-plan__card', {
   scrollTrigger: {
     trigger: '.top-plan__list',
     start: 'top 82%',
     once: true
   },
-  y: 30,
   opacity: 0,
   duration: .7,
   stagger: .15,
   ease: 'power2.out'
 });
 
-gsap.from('.top-plan__more', {
+gsap.from('.top-plan__card .top-plan__image, .top-plan__card .top-plan__body', {
   scrollTrigger: {
-    trigger: '.top-plan__more',
-    start: 'top 90%',
+    trigger: '.top-plan__list',
+    start: 'top 82%',
     once: true
   },
-  y: 15,
-  opacity: 0,
-  duration: .6,
+  y: 30,
+  duration: .7,
   ease: 'power2.out'
 });
 
